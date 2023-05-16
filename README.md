@@ -41,9 +41,9 @@ print(f'is camera GigE: {is_gige}')
 ```
 results:
 ```
-model: Emulation
-serial: 0815-0000
-is camera GigE: False
+>> model: Emulation
+>> serial: 0815-0000
+>> is camera GigE: False
 ```
 ## Parms
 The `Parms` attribute is used to set all camera parameters like gain and exposure. you can also use this attribute to read parameters from the camera
@@ -61,9 +61,9 @@ print(f'trgigger is {trigger}')
 ```
 results:
 ```
-GainRaw should be in range 192 up to 1023  in this device
-gain is 192
-trgigger is On
+>> GainRaw should be in range 192 up to 1023  in this device
+>> gain is 192
+>> trgigger is On
 ```
 ## Status
 The `status` attribute is used to get the status of the camera like camera grabbing status or is camera open or not and also stuff like camera temperature
@@ -81,8 +81,8 @@ print(f'trigger:{trigg_status}')
 ```
 results:
 ```
-camera is open:True
-camera is grabbing:True
+>> camera is open:True
+>> camera is grabbing:True
 ```
 
 # Grab Image
