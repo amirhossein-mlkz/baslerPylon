@@ -6,9 +6,9 @@
   &emsp;4-set your serial number and details <br />
   &emsp;5-Enjoy it! <br />
 
-# Get Devices And Camera
-you can get cameras in two ways, by the get_all_cameras function or get_camera_by_serial.
-get_all_cameras get your ideal camera class like GigE, USB and etc. If pass camera_class argument None, it returns all cameras in different classes
+# Step1: Get Devices And Camera
+you can get cameras in two ways, by the `get_all_cameras` function or `get_camera_by_serial` .
+the `get_all_cameras` function, get your ideal camera class like GigE, USB and etc. If pass `camera_class` argument None, it returns all cameras in different classes
 ``` python
 import dorsaPylon
 from dorsaPylon import Collector, Camera
