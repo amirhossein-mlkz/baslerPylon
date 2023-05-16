@@ -27,6 +27,7 @@ all_cameras = collector.get_all_cameras(camera_class=None)
 cam = collector.get_camera_by_serial('123456')
 ```
 # Camera Functions
+## Infoes
 `Infoes` attribute is used for showing all camera information like serial number and model
 ``` python
 model = camera.Infos.get_model()
@@ -44,7 +45,7 @@ model: Emulation
 serial: 0815-0000
 is camera GigE: False
 ```
-
+## Parms
 The `Parms` attribute is used to set all camera parameters like gain and exposure. you can also use this attribute to read parameters from the camera
 ``` python
 #-----------------------------------------------------------------
@@ -64,4 +65,22 @@ GainRaw should be in range 192 up to 1023  in this device
 gain is 192
 trgigger is On
 ```
+## Status
+The `status` attribute is used to get the status of the camera like camera grabbing status or is camera open or not and also stuff like camera temperature
+``` python
+camera.Operations.open()
+is_open = camera.Status.is_open()
+print(f'camera is open:{is_open}')
 
+camera.Operations.start_grabbing()
+is_grabbing = camera.Status.is_grabbing()
+print(f'camera is grabbing:{is_grabbing}')
+
+trigg_status = camera.Status.is_trigger_on()
+print(f'trigger:{trigg_status}')
+```
+results:
+```
+camera is open:True
+camera is grabbing:True
+```
