@@ -84,3 +84,31 @@ results:
 camera is open:True
 camera is grabbing:True
 ```
+
+# Grab Image
+for grabbing images, you can easily use the `getPictures` method. if you need to change pixel type, for example when you using a mono camera, you can change pixel type by the `build_converter` function. see example
+
+``` python
+#define your ideal pixel_type, defualt is BGR8
+camera.build_converter(pixel_type=dorsaPylon.PixelType.GRAY8)
+#-----------------------------------------------------------------
+img = camera.getPictures()
+cv2.imshow('img', img)
+cv2.waitKey(0)
+```
+
+# Camera Emulation
+this library support camera emulation. To enable camera emulation you can use the `enable_camera_emulation` method in the `Collector` class. you should pass the number of cameras that you want into this method. after calling this method, camera emulation would be added to the list of devices
+
+``` python 
+collector = Collector()
+#enable camera emulation and pass your ideal camera counts
+collector.enable_camera_emulation(2)
+#get avialble cameras in class of emlulation
+cameras = collector.get_all_cameras(camera_class=dorsaPylon.CamersClass.emulation)
+cam1 = cameras[0]
+#-----------------------------------------------------------------
+cam1.Parms.set_gain(50)
+cam1.Operations.start_grabbing()
+```
+
