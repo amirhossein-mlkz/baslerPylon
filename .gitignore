@@ -3,3 +3,6 @@ __pycache__/
 
 examples/__pycache__/
 *.py[cod]
+
+examples/dorsaPylon.py
+examples/PylonFlags.py

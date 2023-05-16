@@ -65,77 +65,6 @@ class ErrorAndWarnings:
 
 
 
-class Collector:
-    def __init__(
-        self,
-        camera_class = None,
-    ):
-        self.camera_class = camera_class
-
-        self.__tl_factory = pylon.TlFactory.GetInstance()
-        # ----------------------------------------------------------
-        self.devices = self.get_available_devices(self.camera_class)
-        self.cameras = None
-        #assert self.devices, ErrorAndWarnings.no_devices()
-        # ----------------------------------------------------------
-    def enable_camera_emulation(self, count):
-        os.environ['PYLON_CAMEMU'] = str(count)
-
-    def get_available_devices(self, camera_class=None):
-        founded_devices = []
-        for device in self.__tl_factory.EnumerateDevices():
-            if device.GetDeviceClass() == camera_class or camera_class is None:
-                founded_devices.append(device)
-        return founded_devices
-    
-    def listDevices(self):
-        cameras = self.get_all_cameras()
-        for i, camera in enumerate(cameras):
-            device_info = camera.GetDeviceInfo()
-            print(
-                "Camera #%d %s @ %s (%s) @ %s"
-                % (
-                    i,
-                    device_info.GetModelName(),
-                    device_info.GetIpAddress(),
-                    device_info.GetMacAddress(),
-                    device_info.GetSerialNumber(),
-                )
-            )
-
-
-    def get_camera_by_serial(self, serial_number):
-        self.devices = self.get_available_devices(None)
-        for device in self.devices:
-            camera = pylon.InstantCamera(self.__tl_factory.CreateDevice(device))
-            if camera.GetDeviceInfo().GetSerialNumber() == serial_number:
-                return Camera(camera)
-        return None
-
-    def get_all_cameras(self, camera_class=None):
-        self.devices = self.get_available_devices(None)
-        cameras = []
-        for device in self.devices:
-            if camera_class is None or device.GetDeviceClass() == camera_class:
-                cameras.append(
-                    Camera(pylon.InstantCamera(self.__tl_factory.CreateDevice(device)))
-                )
-
-        return cameras
-    
-
-    def get_all_serials(self,):
-        cameras = self.get_all_cameras()
-        serial_list = []
-        for cam in cameras:
-            device_info = cam.GetDeviceInfo()
-            serial_list.append(device_info.GetSerialNumber())
-        return serial_list
-
-
-
-
-
 
 
 
@@ -449,6 +378,87 @@ class CameraImageEventHandler(pylon.ImageEventHandler):
         img = self.camera.getPictures(grabResult)
         if self.event_func is not None:
             self.event_func(img)
+
+
+
+
+
+
+
+
+
+
+class Collector:
+    def __init__(
+        self,
+        camera_class = None,
+    ):
+        self.camera_class = camera_class
+
+        self.__tl_factory = pylon.TlFactory.GetInstance()
+        # ----------------------------------------------------------
+        self.devices = self.get_available_devices(self.camera_class)
+        self.cameras = None
+        #assert self.devices, ErrorAndWarnings.no_devices()
+        # ----------------------------------------------------------
+    def enable_camera_emulation(self, count):
+        os.environ['PYLON_CAMEMU'] = str(count)
+
+    def get_available_devices(self, camera_class=None):
+        founded_devices = []
+        for device in self.__tl_factory.EnumerateDevices():
+            if device.GetDeviceClass() == camera_class or camera_class is None:
+                founded_devices.append(device)
+        return founded_devices
+    
+    def listDevices(self):
+        cameras = self.get_all_cameras()
+        for i, camera in enumerate(cameras):
+            device_info = camera.GetDeviceInfo()
+            print(
+                "Camera #%d %s @ %s (%s) @ %s"
+                % (
+                    i,
+                    device_info.GetModelName(),
+                    device_info.GetIpAddress(),
+                    device_info.GetMacAddress(),
+                    device_info.GetSerialNumber(),
+                )
+            )
+
+
+    def get_camera_by_serial(self, serial_number) -> Camera:
+        self.devices = self.get_available_devices(None)
+        for device in self.devices:
+            camera = pylon.InstantCamera(self.__tl_factory.CreateDevice(device))
+            if camera.GetDeviceInfo().GetSerialNumber() == serial_number:
+                return Camera(camera)
+        return None
+
+    def get_all_cameras(self, camera_class=None) -> list[Camera]:
+        self.devices = self.get_available_devices(None)
+        cameras = []
+        for device in self.devices:
+            if camera_class is None or device.GetDeviceClass() == camera_class:
+                cameras.append(
+                    Camera(pylon.InstantCamera(self.__tl_factory.CreateDevice(device)))
+                )
+
+        return cameras
+    
+
+    def get_all_serials(self,):
+        cameras = self.get_all_cameras()
+        serial_list = []
+        for cam in cameras:
+            device_info = cam.GetDeviceInfo()
+            serial_list.append(device_info.GetSerialNumber())
+        return serial_list
+
+
+
+
+
 
 
 
