@@ -117,10 +117,23 @@ if you are using a specific camera and you need a custom feature, you can use th
 in this example, we want to find all features of the camera that are related to the `gain` keyword.
 ``` python 
 nodes_name = cam1.search_in_nodes('gain')
-```
+print(f'first nodes name is {nodes_name[0]}')```
 result:
 ```
->> GainRaw
+>> first nodes name is GainRaw
 ```
+
+now you can set a value to this node by its name. you can use the `set_node` method
+
+``` python
+cam1.Parms.set_node('GainRaw', 195)
+gain = cam1.Parms.get_node('GainRaw')
+print(f'gain set {gain}')
+```
+resut:
+```
+>> gain set 195
+```
+
 
 
