@@ -27,7 +27,7 @@ trigger = camera.Parms.get_trigger_mode()
 print(f'trgigger is {trigger}')
 
 possible_triggerselector_value = camera.Parms.availble_triggerselector_values()
-print('possible trigger selector value is:{}')
+print(f'possible trigger selector value is:{possible_triggerselector_value}')
 #-----------------------------------------------------------------
 
 camera.Operations.open()
