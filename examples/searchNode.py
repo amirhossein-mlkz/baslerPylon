@@ -18,4 +18,4 @@ print(f'gain set {gain}')
 #-----------------------------------------------------------------
 node_name = 'ExposureMode'
 possible_values = cam1.Parms.availble_node_values(node_name)
-print(f'possible value for {node_name} is: {possible_values}')
+print(f'possible values for {node_name} are: {possible_values}')
