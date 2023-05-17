@@ -14,3 +14,8 @@ print(f'first nodes name is {nodes_name[0]}')
 cam1.Parms.set_node('GainRaw', 195)
 gain = cam1.Parms.get_node('GainRaw')
 print(f'gain set {gain}')
+
+#-----------------------------------------------------------------
+node_name = 'ExposureMode'
+possible_values = cam1.Parms.availble_node_values(node_name)
+print(f'possible value for {node_name} is: {possible_values}')

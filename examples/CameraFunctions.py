@@ -25,6 +25,9 @@ print(f'gain is {gain}')
 camera.Parms.set_trigger_on()
 trigger = camera.Parms.get_trigger_mode()
 print(f'trgigger is {trigger}')
+
+possible_triggerselector_value = camera.Parms.availble_triggerselector_values()
+print('possible trigger selector value is:{}')
 #-----------------------------------------------------------------
 
 camera.Operations.open()
