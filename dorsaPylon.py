@@ -44,22 +44,37 @@ show_eror = False
 
 
 class ErrorAndWarnings:
+    @staticmethod
     def no_devices():
         return "ERROR: No Devices founded"
+    
+    @staticmethod
     def not_grabbing():
         return "ERROR: Camera is not Grabbing"
 
+    @staticmethod
     def not_in_range(name, min_v, max_v):
         return f"{name} should be in range {min_v} up to {max_v}  in this device"
     
+    @staticmethod
     def grab_error(error_code, error_description):
-        return 'ERROR: error {error_code} happend! {error_description}'
+        return f'ERROR: error {error_code} happend! {error_description}'
     
+    @staticmethod
     def error_code(error_code):
-        return 'ERROR: error {error_code} happend!'
-        
+        return f'ERROR: error {error_code} happend!'
+
+    @staticmethod    
     def value_not_available(name, availbles):
         return f"ERROR: only {availbles} could set for {name} in this device"
+    
+    @staticmethod
+    def reset():
+        return f"WARNING: camera reset! you should creat Camera Object again !!"
+    
+    def not_grabbing():
+        return "ERROR: camera isn't grabbing. Start Grabbing First!"
+
 
 
 
@@ -97,7 +112,22 @@ class Camera:
         self.timeout = 5000
 
     
-    
+    def reset(self,):
+        cam1.camera_device.DeviceReset()
+        print(ErrorAndWarnings.reset())
+
+    def search_in_nodes(self, *keywords):
+        res = []
+        for node in self.camera_device.NodeMap.GetNodes():
+            flag = True
+            for keyword in keywords:
+                if keyword not in node.Node.Name.lower():
+                    flag = False
+                    break
+            if flag:
+                res.append(node.Node.Name)
+                print(node.Node.Name)
+        return res
     
 
     def build_converter(self, pixel_type):
@@ -111,7 +141,10 @@ class Camera:
 
 
     def set_image_event(self, func):
-        self.camera_device.GrabCameraEvents = True #enable event handler
+        if self.Status.is_open():
+            self.Operations.close()
+        #self.Operations.start_grabbing()
+        self.camera_device.GrabCameraEvents.SetValue(True) #enable event handler
         self.image_event_handler.set_func(func)
         self.camera_device.RegisterImageEventHandler(self.image_event_handler, pylon.RegistrationMode_Append, pylon.Cleanup_Delete)
 
@@ -139,8 +172,10 @@ class Camera:
         if grabResult is not None and grabResult.GrabSucceeded():
             image = self.converter.Convert(grabResult)
             res_img = image.Array
-        else:
+        elif grabResult is not None:
             print( ErrorAndWarnings.grab_error(grabResult.ErrorCode, grabResult.ErrorDescription))
+        else:
+            print(ErrorAndWarnings.not_grabbing())
         #-------------------------------------------------------------
         if res_img is None:
             if img_when_error == 'zero':
@@ -456,23 +491,74 @@ class Collector:
         return serial_list
 
 
+# eMyExposureEndEvent = 100
+# class SampleCameraEventHandler(pylon.CameraEventHandler):
+#     # Only very short processing tasks should be performed by this method. Otherwise, the event notification will block the
+#     # processing of images.
+#     def OnCameraEvent(self, camera, userProvidedId, node):
+#         print('ffffffffffffffff')
+#         if userProvidedId == eMyExposureEndEvent:
+#             print("Exposure End event. FrameID: ", camera.EventExposureEndFrameID.Value, " Timestamp: ",
+#                   camera.EventExposureEndTimestamp.Value)
+#             # More events can be added here.
 
 
+# def test_event(img):
+#     print('tesssssssssst')
 
-
+# handler1 = SampleCameraEventHandler()
 
 
 
 if __name__ == "__main__":
+    time.sleep(1)
     collector = Collector()
     collector.enable_camera_emulation(2)
     cameras = collector.get_all_cameras(camera_class=CamersClass.emulation)
     cam1 = cameras[0]
     #-----------------------------------------------------------------
-    cam1.Parms.set_gain(50)
+    cam1.Parms.set_gain(50000)
     cam1.Operations.start_grabbing()
-    cam1.Parms.set_trigger_option(Trigger.source.hardware_line1, Trigger.selector.frame_start)
+    #cam1.search_in_nodes('gain')
+    #cam1.set_image_event(func=test_event)
+    
     #-----------------------------------------------------------------
+    cam1.Parms.set_gain(0)
+    # cam1.set_image_event(test_event)
+    # cam1.Operations.start_grabbing()
+    # cam1.software_trige_exec()
+    # cam1.getPictures()
+    # cam1.camera_device.EventSelector.SetValue('ExposureEnd')
+    
+
+    #-----------------------------------------------------------------------
+    #cam1.Operations.close()
+    # cam1.camera_device.RegisterConfiguration(pylon.SoftwareTriggerConfiguration(), pylon.RegistrationMode_ReplaceAll,
+    #                              pylon.Cleanup_Delete)
+    
+    # cam1.camera_device.GrabCameraEvents.SetValue(True) #enable event handler
+    # cam1.camera_device.RegisterCameraEventHandler(handler1, "ExposureEndEventData", eMyExposureEndEvent, pylon.RegistrationMode_ReplaceAll, pylon.Cleanup_None)
+
+    # cam1.Operations.open()
+
+    # cam1.camera_device.EventSelector.SetValue('ExposureEnd')
+    # cam1.camera_device.EventNotification.SetValue('On')
+    #-----------------------------------------------------------------------
+
+    #cam1.Parms.set_trigger_option(Trigger.source.software, Trigger.selector.frame_start)
+    cam1.Operations.start_grabbing()
+    # 
+
+    # cam1.Operations.open()
+    # cam1.Operations.start_grabbing()
+    
+    
+    #i  = cam1.getPictures()
+    cam1.software_trige_exec()
+    while True:
+        cam1.software_trige_exec()
+        time.sleep(0.2)
+        cam1.getPictures()
     pass
     #a = pylon.InstantCamera()
     #x = pylon.InstantCamera()
