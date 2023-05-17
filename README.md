@@ -65,6 +65,17 @@ results:
 >> gain is 192
 >> trgigger is On
 ```
+for some features, you can use `availble_xxxx` methods to get all possible values that you can set for that specific value
+
+``` python
+possible_triggerselector_value = camera.Parms.availble_triggerselector_values()
+print(f'possible trigger selector value is:{possible_triggerselector_value}')
+```
+result:
+```
+possible trigger selector value is:('AcquisitionStart',)
+```
+
 ## Status
 The `status` attribute is used to get the status of the camera like camera grabbing status or is camera open or not and also stuff like camera temperature
 ``` python
@@ -135,6 +146,17 @@ print(f'gain set {gain}')
 resut:
 ```
 >> gain set 195
+```
+
+if possible values for a node are predefined strings (e.g. 'On', 'Off' ), you can use the x method to get all possible values that could be set to the node
+``` python 
+node_name = 'ExposureMode'
+possible_values = cam1.Parms.availble_node_values(node_name)
+print(f'possible value for {node_name} is: {possible_values}')
+```
+result:
+```
+possible values for ExposureMode are: ('Timed',)
 ```
 
 
