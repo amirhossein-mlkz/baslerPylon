@@ -125,6 +125,7 @@ class Camera:
                     flag = False
                     break
             if flag:
+                #res.append([node.Node.Name,node])
                 res.append(node.Node.Name)
                 print(node.Node.Name)
         return res
@@ -311,7 +312,17 @@ class CameraParms:
         #self.ps = packet_size
         #self.ftd = frame_transmission_delay
         #self.exitCode = 0
-
+    def set_node(self, node_name, value ):
+        node = self.camera_object.camera_device.NodeMap.GetNode(node_name)
+        self.__set_value__(value, node)
+    
+    def get_node(self, node_name: str ):
+        node = self.camera_object.camera_device.NodeMap.GetNode(node_name)
+        return self.__get_value__(node)
+    
+    def availble_node_values(self, node_name):
+        node = self.camera_object.camera_device.NodeMap.GetNode(node_name)
+        return self.__get_available_value__(node)
 
     def set_gain(self, gain: int) -> None:
         if self.camera_object.Infos.is_PRO():
@@ -519,7 +530,7 @@ if __name__ == "__main__":
     #-----------------------------------------------------------------
     cam1.Parms.set_gain(50000)
     cam1.Operations.start_grabbing()
-    #cam1.search_in_nodes('gain')
+    cam1.search_in_nodes('gain')
     #cam1.set_image_event(func=test_event)
     
     #-----------------------------------------------------------------
