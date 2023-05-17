@@ -111,4 +111,16 @@ cam1 = cameras[0]
 cam1.Parms.set_gain(50)
 cam1.Operations.start_grabbing()
 ```
+# others
+## 1- search node
+if you are using a specific camera and you need a custom feature, you can use the `search_in_nodes(*keywords)` method to find your desired feature( node ) in the camera. this function gets one or more keywords in the `str` type and returns all nodes in your camera that contain these keywords. 
+in this example, we want to find all features of the camera that are related to the `gain` keyword.
+``` python 
+nodes_name = cam1.search_in_nodes('gain')
+```
+result:
+```
+>> GainRaw
+```
+
 
