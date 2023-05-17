@@ -119,13 +119,14 @@ in this example, we want to find all features of the camera that are related to 
 nodes_name = cam1.search_in_nodes('gain')
 print(f'first nodes name is {nodes_name[0]}')```
 result:
+
 ```
 >> first nodes name is GainRaw
 ```
 
 now you can set a value to this node by its name. you can use the `set_node` method
 
-``` python
+``` python 
 cam1.Parms.set_node('GainRaw', 195)
 gain = cam1.Parms.get_node('GainRaw')
 print(f'gain set {gain}')
