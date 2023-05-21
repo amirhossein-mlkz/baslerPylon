@@ -29,6 +29,7 @@ Contents
    installation
    getting_start
    manageـdeviceـbyـCollector
+   camera_information
 
 
 
@@ -36,8 +37,10 @@ sources Document
 =================
 .. toctree::
    :maxdepth: 1
+   :caption: sources:
 
    Collector_src
+   Camera_src
 
 Indices and tables
 ==================
