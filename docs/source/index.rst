@@ -25,7 +25,7 @@ Contents
 .. toctree::
    :maxdepth: 2
    :caption: subjects:
-   
+
    installation
    getting_start
    manageـdeviceـbyـCollector
@@ -33,6 +33,8 @@ Contents
    camera_information
    camera_parms
    camera_status
+   camera_operations
+   others
 
 
 

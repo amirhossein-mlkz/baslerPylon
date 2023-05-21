@@ -1,4 +1,4 @@
-Fast Getting start
+Getting start
 ===================
 
 step 1: get Cameras
@@ -53,7 +53,7 @@ You can adjust all camera parameters like gain using  ``set_****`` functions of 
    print(f'gain is {gain}')
 
 
-.. code-block:: console
+.. code-block:: 
 
    $ gain is 250
 
@@ -76,7 +76,7 @@ you can change the camera pixelType using the ``build_converter`` function. For 
    print('gray image shape is', gray_img.shape)
    print('bgr image shape is', bgr_img.shape)
 
-.. code-block:: console
+.. code-block:: 
 
    $ gray image shape is (1200,1920)
    $ bgr image shape is (1200,1920,3)

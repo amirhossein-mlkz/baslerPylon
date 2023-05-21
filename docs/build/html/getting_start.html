@@ -4,7 +4,7 @@
   <meta charset="utf-8" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Fast Getting start &mdash; baslerPylon 0.1 documentation</title>
+  <title>Getting start &mdash; baslerPylon 0.1 documentation</title>
       <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
       <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
       <link rel="stylesheet" href="_static/copybutton.css" type="text/css" />
@@ -46,7 +46,7 @@
               <p class="caption" role="heading"><span class="caption-text">subjects:</span></p>
 <ul class="current">
 <li class="toctree-l1"><a class="reference internal" href="installation.html">Installation</a></li>
-<li class="toctree-l1 current"><a class="current reference internal" href="#">Fast Getting start</a><ul>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Getting start</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="#step-1-get-cameras">step 1: get Cameras</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#step-2-get-picture">Step 2: get picture</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#adjust-camera-parameters">Adjust camera parameters</a></li>
@@ -55,9 +55,16 @@
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="manage%D9%80device%D9%80by%D9%80Collector.html">Manage cameras by Collector</a></li>
+<li class="toctree-l1"><a class="reference internal" href="camera_emulation.html">Camera Emulation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="camera_information.html">Access camera information</a></li>
+<li class="toctree-l1"><a class="reference internal" href="camera_parms.html">Camera parameters</a></li>
+<li class="toctree-l1"><a class="reference internal" href="camera_status.html">Camera Status</a></li>
+<li class="toctree-l1"><a class="reference internal" href="others.html">others atribiute</a></li>
 </ul>
+<p class="caption" role="heading"><span class="caption-text">sources:</span></p>
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="Collector_src.html">Collector Class Functions</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Camera_src.html">Camera Class Functions and atribiutes</a></li>
 </ul>
 
         </div>
@@ -74,7 +81,7 @@
           <div role="navigation" aria-label="Page navigation">
   <ul class="wy-breadcrumbs">
       <li><a href="index.html" class="icon icon-home" aria-label="Home"></a></li>
-      <li class="breadcrumb-item active">Fast Getting start</li>
+      <li class="breadcrumb-item active">Getting start</li>
       <li class="wy-breadcrumbs-aside">
             <a href="_sources/getting_start.rst.txt" rel="nofollow"> View page source</a>
       </li>
@@ -84,8 +91,8 @@
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
            <div itemprop="articleBody">
              
-  <section id="fast-getting-start">
-<h1>Fast Getting start<a class="headerlink" href="#fast-getting-start" title="Permalink to this heading"></a></h1>
+  <section id="getting-start">
+<h1>Getting start<a class="headerlink" href="#getting-start" title="Permalink to this heading"></a></h1>
 <section id="step-1-get-cameras">
 <h2>step 1: get Cameras<a class="headerlink" href="#step-1-get-cameras" title="Permalink to this heading"></a></h2>
 <p>You can manage cameras using Collector class . Use <code class="docutils literal notranslate"><span class="pre">get_all_cameras</span></code> function to get all connected cameras.
@@ -129,7 +136,7 @@ for more information see chapter <a class="reference internal" href="manage%D9%8
 <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;gain is </span><span class="si">{</span><span class="n">gain</span><span class="si">}</span><span class="s1">&#39;</span><span class="p">)</span>
 </pre></div>
 </div>
-<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">$ </span>gain<span class="w"> </span>is<span class="w"> </span><span class="m">250</span>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>$ gain is 250
 </pre></div>
 </div>
 </section>
@@ -149,8 +156,8 @@ you can change the camera pixelType using the <code class="docutils literal notr
 <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;bgr image shape is&#39;</span><span class="p">,</span> <span class="n">bgr_img</span><span class="o">.</span><span class="n">shape</span><span class="p">)</span>
 </pre></div>
 </div>
-<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">$ </span>gray<span class="w"> </span>image<span class="w"> </span>shape<span class="w"> </span>is<span class="w"> </span><span class="o">(</span><span class="m">1200</span>,1920<span class="o">)</span>
-<span class="gp">$ </span>bgr<span class="w"> </span>image<span class="w"> </span>shape<span class="w"> </span>is<span class="w"> </span><span class="o">(</span><span class="m">1200</span>,1920,3<span class="o">)</span>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>$ gray image shape is (1200,1920)
+$ bgr image shape is (1200,1920,3)
 </pre></div>
 </div>
 </section>
