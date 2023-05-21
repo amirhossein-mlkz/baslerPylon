@@ -57,6 +57,7 @@
 <li class="toctree-l3"><a class="reference internal" href="#search-node">search node</a></li>
 </ul>
 </li>
+<li class="toctree-l2"><a class="reference internal" href="#more-sources">more sources</a></li>
 </ul>
 </li>
 </ul>
@@ -213,17 +214,25 @@ This function receives node’s name as argument and return a list of possible v
 </section>
 <section id="search-node">
 <h3>search node<a class="headerlink" href="#search-node" title="Permalink to this heading"></a></h3>
-<p>If you need to set a parameter but don’t know its exact name, you can use the search tool. you can use the <code class="docutils literal notranslate"><span class="pre">search_in_nodes(*keywords)</span></code> method to find your desired feature( node ) in the camera.
+<p>If you need to set a node but don’t know its exact name, you can use the <code class="docutils literal notranslate"><span class="pre">search_in_nodes(*keywords)</span></code> method to find your desired feature( node ) in your specific camera.
 this function gets one or more keywords in the <code class="docutils literal notranslate"><span class="pre">str</span></code> type and returns all nodes in your camera that contain these keywords.</p>
 <p>in this example, we want to find all features of the camera that are related to the <code class="docutils literal notranslate"><span class="pre">gain</span></code> keyword.</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">nodes_name</span> <span class="o">=</span> <span class="n">cam1</span><span class="o">.</span><span class="n">search_in_nodes</span><span class="p">(</span><span class="s1">&#39;gain&#39;</span><span class="p">)</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;</span><span class="si">{</span><span class="nb">len</span><span class="p">(</span><span class="n">nodes_name</span><span class="p">)</span><span class="si">}</span><span class="s1"> nodes founded&#39;</span><span class="p">)</span>
 <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;first nodes name is </span><span class="si">{</span><span class="n">nodes_name</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="si">}</span><span class="s1">&#39;</span><span class="p">)</span>
 </pre></div>
 </div>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>$ first nodes name is GainRaw
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>$ 3 nodes founded
+$ first nodes name is GainRaw
 </pre></div>
 </div>
 </section>
+</section>
+<section id="more-sources">
+<h2>more sources<a class="headerlink" href="#more-sources" title="Permalink to this heading"></a></h2>
+<p>for more information see
+<a class="reference internal" href="Camera_src.html"><span class="doc">Camera Class Functions and atribiutes</span></a></p>
 </section>
 </section>
 

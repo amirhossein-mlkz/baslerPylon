@@ -32,6 +32,7 @@ Contents
    camera_emulation
    camera_information
    camera_parms
+   camera_status
 
 
 

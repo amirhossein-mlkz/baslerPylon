@@ -63,3 +63,10 @@ For more convenience, you can use the functions like ``is_USB``, ``is_GigE``, ``
 
    $ is camera GigE: True
    $ is camera Pro: False
+
+
+
+more sources
+------------------
+for more information see  
+:doc:`Camera_src`

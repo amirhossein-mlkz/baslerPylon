@@ -153,7 +153,7 @@ This function receives node's name as argument and return a list of possible val
 
 search node
 ^^^^^^^^^^^^^^^^^^^^^^
-If you need to set a parameter but don't know its exact name, you can use the search tool. you can use the ``search_in_nodes(*keywords)`` method to find your desired feature( node ) in the camera.
+If you need to set a node but don't know its exact name, you can use the ``search_in_nodes(*keywords)`` method to find your desired feature( node ) in your specific camera.
 this function gets one or more keywords in the ``str`` type and returns all nodes in your camera that contain these keywords.
 
 in this example, we want to find all features of the camera that are related to the ``gain`` keyword.
@@ -161,9 +161,19 @@ in this example, we want to find all features of the camera that are related to 
 .. code-block:: python
    
    nodes_name = cam1.search_in_nodes('gain')
+
+   print(f'{len(nodes_name)} nodes founded')
    print(f'first nodes name is {nodes_name[0]}')
 
 .. code-block::
 
+   $ 3 nodes founded
    $ first nodes name is GainRaw
+
+
+
+more sources
+------------------
+for more information see  
+:doc:`Camera_src`
 
