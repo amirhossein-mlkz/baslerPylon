@@ -29,6 +29,7 @@ Contents
    installation
    getting_start
    manageـdeviceـbyـCollector
+   camera_emulation
    camera_information
 
 
