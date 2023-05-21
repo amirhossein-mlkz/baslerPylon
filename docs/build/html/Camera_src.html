@@ -19,7 +19,8 @@
         <script src="_static/copybutton.js"></script>
     <script src="_static/js/theme.js"></script>
     <link rel="index" title="Index" href="genindex.html" />
-    <link rel="search" title="Search" href="search.html" /> 
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="prev" title="Collector Class Functions" href="Collector_src.html" /> 
 </head>
 
 <body class="wy-body-for-nav"> 
@@ -46,11 +47,78 @@
 <li class="toctree-l1"><a class="reference internal" href="installation.html">Installation</a></li>
 <li class="toctree-l1"><a class="reference internal" href="getting_start.html">Fast Getting start</a></li>
 <li class="toctree-l1"><a class="reference internal" href="manage%D9%80device%D9%80by%D9%80Collector.html">Manage cameras by Collector</a></li>
+<li class="toctree-l1"><a class="reference internal" href="camera_emulation.html">Camera Emulation</a></li>
 <li class="toctree-l1"><a class="reference internal" href="camera_information.html">Access camera information</a></li>
+<li class="toctree-l1"><a class="reference internal" href="camera_parms.html">Camera parameters</a></li>
 </ul>
 <p class="caption" role="heading"><span class="caption-text">sources:</span></p>
-<ul>
+<ul class="current">
 <li class="toctree-l1"><a class="reference internal" href="Collector_src.html">Collector Class Functions</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Camera Class Functions and atribiutes</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#dorsaPylon.Collector"><code class="docutils literal notranslate"><span class="pre">Collector</span></code></a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#dorsaPylon.Collector.enable_camera_emulation"><code class="docutils literal notranslate"><span class="pre">Collector.enable_camera_emulation()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#dorsaPylon.Collector.get_all_cameras"><code class="docutils literal notranslate"><span class="pre">Collector.get_all_cameras()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#dorsaPylon.Collector.get_all_serials"><code class="docutils literal notranslate"><span class="pre">Collector.get_all_serials()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#dorsaPylon.Collector.get_available_devices"><code class="docutils literal notranslate"><span class="pre">Collector.get_available_devices()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#dorsaPylon.Collector.get_camera_by_serial"><code class="docutils literal notranslate"><span class="pre">Collector.get_camera_by_serial()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#dorsaPylon.Collector.listDevices"><code class="docutils literal notranslate"><span class="pre">Collector.listDevices()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#dorsaPylon.Camera"><code class="docutils literal notranslate"><span class="pre">Camera</span></code></a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#dorsaPylon.Camera.build_converter"><code class="docutils literal notranslate"><span class="pre">Camera.build_converter()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#dorsaPylon.Camera.build_zero_image"><code class="docutils literal notranslate"><span class="pre">Camera.build_zero_image()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#dorsaPylon.Camera.getPictures"><code class="docutils literal notranslate"><span class="pre">Camera.getPictures()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#dorsaPylon.Camera.reset"><code class="docutils literal notranslate"><span class="pre">Camera.reset()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#dorsaPylon.Camera.search_in_nodes"><code class="docutils literal notranslate"><span class="pre">Camera.search_in_nodes()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#dorsaPylon.Camera.software_trige_exec"><code class="docutils literal notranslate"><span class="pre">Camera.software_trige_exec()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#dorsaPylon.CameraInfo"><code class="docutils literal notranslate"><span class="pre">CameraInfo</span></code></a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#dorsaPylon.CameraInfo.get_class"><code class="docutils literal notranslate"><span class="pre">CameraInfo.get_class()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#dorsaPylon.CameraInfo.get_model"><code class="docutils literal notranslate"><span class="pre">CameraInfo.get_model()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#dorsaPylon.CameraInfo.get_serialnumber"><code class="docutils literal notranslate"><span class="pre">CameraInfo.get_serialnumber()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#dorsaPylon.CameraInfo.is_GigE"><code class="docutils literal notranslate"><span class="pre">CameraInfo.is_GigE()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#dorsaPylon.CameraInfo.is_PRO"><code class="docutils literal notranslate"><span class="pre">CameraInfo.is_PRO()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#dorsaPylon.CameraInfo.is_USB"><code class="docutils literal notranslate"><span class="pre">CameraInfo.is_USB()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#dorsaPylon.CameraParms"><code class="docutils literal notranslate"><span class="pre">CameraParms</span></code></a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#dorsaPylon.CameraParms.availble_node_values"><code class="docutils literal notranslate"><span class="pre">CameraParms.availble_node_values()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#dorsaPylon.CameraParms.availble_triggerselector_values"><code class="docutils literal notranslate"><span class="pre">CameraParms.availble_triggerselector_values()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#dorsaPylon.CameraParms.availble_triggersource_values"><code class="docutils literal notranslate"><span class="pre">CameraParms.availble_triggersource_values()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#dorsaPylon.CameraParms.get_exposureTime"><code class="docutils literal notranslate"><span class="pre">CameraParms.get_exposureTime()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#dorsaPylon.CameraParms.get_gain"><code class="docutils literal notranslate"><span class="pre">CameraParms.get_gain()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#dorsaPylon.CameraParms.get_node"><code class="docutils literal notranslate"><span class="pre">CameraParms.get_node()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#dorsaPylon.CameraParms.get_roi"><code class="docutils literal notranslate"><span class="pre">CameraParms.get_roi()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#dorsaPylon.CameraParms.get_trigger_mode"><code class="docutils literal notranslate"><span class="pre">CameraParms.get_trigger_mode()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#dorsaPylon.CameraParms.get_trigger_option"><code class="docutils literal notranslate"><span class="pre">CameraParms.get_trigger_option()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#dorsaPylon.CameraParms.set_all_parms"><code class="docutils literal notranslate"><span class="pre">CameraParms.set_all_parms()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#dorsaPylon.CameraParms.set_exposureTime"><code class="docutils literal notranslate"><span class="pre">CameraParms.set_exposureTime()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#dorsaPylon.CameraParms.set_gain"><code class="docutils literal notranslate"><span class="pre">CameraParms.set_gain()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#dorsaPylon.CameraParms.set_node"><code class="docutils literal notranslate"><span class="pre">CameraParms.set_node()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#dorsaPylon.CameraParms.set_roi"><code class="docutils literal notranslate"><span class="pre">CameraParms.set_roi()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#dorsaPylon.CameraParms.set_transportlayer"><code class="docutils literal notranslate"><span class="pre">CameraParms.set_transportlayer()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#dorsaPylon.CameraParms.set_trigger_off"><code class="docutils literal notranslate"><span class="pre">CameraParms.set_trigger_off()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#dorsaPylon.CameraParms.set_trigger_on"><code class="docutils literal notranslate"><span class="pre">CameraParms.set_trigger_on()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#dorsaPylon.CameraParms.set_trigger_option"><code class="docutils literal notranslate"><span class="pre">CameraParms.set_trigger_option()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#dorsaPylon.CameraStatus"><code class="docutils literal notranslate"><span class="pre">CameraStatus</span></code></a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#dorsaPylon.CameraStatus.get_tempreture"><code class="docutils literal notranslate"><span class="pre">CameraStatus.get_tempreture()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#dorsaPylon.CameraStatus.is_grabbing"><code class="docutils literal notranslate"><span class="pre">CameraStatus.is_grabbing()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#dorsaPylon.CameraStatus.is_open"><code class="docutils literal notranslate"><span class="pre">CameraStatus.is_open()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#dorsaPylon.CameraStatus.is_trigger_on"><code class="docutils literal notranslate"><span class="pre">CameraStatus.is_trigger_on()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#dorsaPylon.CameraOperations"><code class="docutils literal notranslate"><span class="pre">CameraOperations</span></code></a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#dorsaPylon.CameraOperations.close"><code class="docutils literal notranslate"><span class="pre">CameraOperations.close()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#dorsaPylon.CameraOperations.open"><code class="docutils literal notranslate"><span class="pre">CameraOperations.open()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#dorsaPylon.CameraOperations.start_grabbing"><code class="docutils literal notranslate"><span class="pre">CameraOperations.start_grabbing()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#dorsaPylon.CameraOperations.stop_grabbing"><code class="docutils literal notranslate"><span class="pre">CameraOperations.stop_grabbing()</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
 </ul>
 
         </div>
@@ -583,7 +651,9 @@ Trigger.hardware_line1</p></li>
 
            </div>
           </div>
-          <footer>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="Collector_src.html" class="btn btn-neutral float-left" title="Collector Class Functions" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+    </div>
 
   <hr/>
 

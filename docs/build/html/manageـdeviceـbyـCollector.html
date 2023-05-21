@@ -59,6 +59,7 @@
 </li>
 <li class="toctree-l1"><a class="reference internal" href="camera_emulation.html">Camera Emulation</a></li>
 <li class="toctree-l1"><a class="reference internal" href="camera_information.html">Access camera information</a></li>
+<li class="toctree-l1"><a class="reference internal" href="camera_parms.html">Camera parameters</a></li>
 </ul>
 <p class="caption" role="heading"><span class="caption-text">sources:</span></p>
 <ul>
@@ -94,7 +95,7 @@
 <h1>Manage cameras by Collector<a class="headerlink" href="#manage-cameras-by-collector" title="Permalink to this heading"></a></h1>
 <section id="collector-class">
 <h2>Collector class<a class="headerlink" href="#collector-class" title="Permalink to this heading"></a></h2>
-<p>You can manage cameras using Collector class. So for the first step you need to create an instance of this class</p>
+<p>You can manage cameras using <code class="docutils literal notranslate"><span class="pre">Collector</span></code> class. So for the first step you need to create an instance of this class</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">dorsaPylon</span>
 <span class="kn">from</span> <span class="nn">dorsaPylon</span> <span class="kn">import</span> <span class="n">Collector</span>
 
@@ -112,7 +113,7 @@ of <cite>Camera</cite> objects</p>
 <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;</span><span class="si">{</span><span class="nb">len</span><span class="p">(</span><span class="n">all_cameras</span><span class="p">)</span><span class="si">}</span><span class="s1"> devices founded&#39;</span><span class="p">)</span>
 </pre></div>
 </div>
-<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">$ </span><span class="m">2</span><span class="w"> </span>devices<span class="w"> </span>founded
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>$ 2 devices founded
 </pre></div>
 </div>
 </section>
@@ -136,7 +137,7 @@ of <cite>Camera</cite> objects</p>
 <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;camera&#39;s serial number is </span><span class="si">{</span><span class="n">camera</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
 </pre></div>
 </div>
-<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">$ </span>cameras<span class="w"> </span>serial<span class="w"> </span>number<span class="w"> </span>is<span class="w"> </span><span class="m">123456</span>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>$ cameras serial number is 123456
 </pre></div>
 </div>
 <section id="more-sources">

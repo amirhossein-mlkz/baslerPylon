@@ -5,6 +5,7 @@ Infos Class
 ^^^^^^^^^^^^^^^^^
 You can access to all information of camera using ``Info`` atribiute of ``Camera`` class. This attribute manages the parameters of the camera that are inherent such as camera-model and serial-number.
 In the example below, we use the ``get_serialnumber`` method to get the camera model
+
 .. code-block:: python
 
    import dorsaPylon
@@ -19,7 +20,7 @@ In the example below, we use the ``get_serialnumber`` method to get the camera m
 
    print(f'model: {model}')
 
-.. code-block:: console
+.. code-block:: 
 
    $ model: acA1920-40gm
 
@@ -27,7 +28,7 @@ In the example below, we use the ``get_serialnumber`` method to get the camera m
 Now let's get the camera class and its serial number as well
 
 .. code-block:: python
-   
+
    #get serial numbr of camera
    sn = camera.Infos.get_serialnumber()
 
@@ -37,7 +38,7 @@ Now let's get the camera class and its serial number as well
    print(f'serial number: {sn}')
    print(f'camera class: {cc}')
 
-.. code-block:: console
+.. code-block:: 
 
    $ serial number: 386313863
    $ camera class: BaslerGigE
@@ -58,7 +59,7 @@ For more convenience, you can use the functions like ``is_USB``, ``is_GigE``, ``
    print(f'is camera GigE: {is_gige}')
    print(f'is camera Pro: {is_pro}')
 
-.. code-block:: console
+.. code-block:: 
 
    $ is camera GigE: True
    $ is camera Pro: False

@@ -3,7 +3,7 @@ Manage cameras by Collector
 
 Collector class
 ^^^^^^^^^^^^^^^^^
-You can manage cameras using Collector class. So for the first step you need to create an instance of this class
+You can manage cameras using ``Collector`` class. So for the first step you need to create an instance of this class
 
 .. code-block:: python
 
@@ -25,7 +25,7 @@ of `Camera` objects
 
    print(f'{len(all_cameras)} devices founded')
 
-.. code-block:: console
+.. code-block:: 
 
    $ 2 devices founded
 
@@ -59,7 +59,7 @@ You can get a camera based on its serial number by using the A function
 
    print(f"camera's serial number is {camera}")
 
-.. code-block:: console
+.. code-block:: 
 
    $ cameras serial number is 123456
 

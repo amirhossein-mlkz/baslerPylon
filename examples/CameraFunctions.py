@@ -26,8 +26,18 @@ camera.Parms.set_trigger_on()
 trigger = camera.Parms.get_trigger_mode()
 print(f'trgigger is {trigger}')
 
-possible_triggerselector_value = camera.Parms.availble_triggerselector_values()
-print(f'possible trigger selector values are:{possible_triggerselector_value}')
+possible_triggersource_value = camera.Parms.availble_triggersource_values()
+print(f'possible trigger source values are:{possible_triggersource_value}')
+
+camera.Parms.set_trigger_option(dorsaPylon.Trigger.source.software,
+                                dorsaPylon.Trigger.selector.frame_start
+                                )
+
+#-----------------------------------------------------------------
+
+camera.Parms.set_exposureTime(2000)
+exposure = camera.Parms.get_exposureTime()
+print(f'exposure is {exposure}')
 #-----------------------------------------------------------------
 
 camera.Operations.open()

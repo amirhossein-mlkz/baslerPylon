@@ -31,6 +31,7 @@ Contents
    manageـdeviceـbyـCollector
    camera_emulation
    camera_information
+   camera_parms
 
 
 
