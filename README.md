@@ -1,10 +1,10 @@
 # Steup
 ◌Instructions:<br />
   &emsp;1-pip install pypylon <br />
-  &emsp;2-connect your basler camera <br />
-  &emsp;3-open final_pypylon.py <br />
-  &emsp;4-set your serial number and details <br />
-  &emsp;5-Enjoy it! <br />
+  &emsp;2-clone repository <br />
+
+# Documention 
+ To view the documents, first clone the project and then go to `docs/build/` folder and open `index.html'
 
 # Step1: Get Devices And Camera
 you can get cameras in two ways, by the `get_all_cameras` function or `get_camera_by_serial` .
