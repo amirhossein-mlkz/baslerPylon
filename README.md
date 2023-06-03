@@ -4,7 +4,7 @@
   &emsp;2-clone repository <br />
 
 # Documention 
- To view the documents, first clone the project and then go to `docs/build/` folder and open `index.html'
+ To view the documents, first clone the project and then go to `docs/build/` folder and open `index.html`.
 
 # Step1: Get Devices And Camera
 you can get cameras in two ways, by the `get_all_cameras` function or `get_camera_by_serial` .
